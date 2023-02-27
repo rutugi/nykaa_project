@@ -30,16 +30,19 @@ public class StepDefinition {
     public StepDefinition(BrowserManager browserManager) {
         this.driver = browserManager.getDriver();
     }
+
     @Before
     public void before(Scenario scenario) {
         this.scenario = scenario;
     }
+
     @Given("the user navigates to the home page")
     public void the_user_navigates_to_the_home_page() {
         url = QaProps.getValue("url");
         driver.get(url);
         data = TestDataReader.getData(scenario.getName());
     }
+
     @When("the user enter the product name")
     public void the_user_enter_the_product_name() {
         homePage = new HomePage(driver);
@@ -99,5 +102,17 @@ public class StepDefinition {
     public void qqqqIsDisplayed() {
 
     }
+
+    @Given("the user navigates to the home page")
+    public void the_user_navigates_home_page() {
+        url = QaProps.getValue("url");
+        driver.get(url);
+        data = TestDataReader.getData(scenario.getName());
+    }
+    @Given("the user navigates to the home page")
+    public void the_user_navigates_() {
+        url = QaProps.getValue("url");
+        driver.get(url);
+        data = TestDataReader.getData(scenario.getName());
 }
 
